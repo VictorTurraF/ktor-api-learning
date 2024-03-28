@@ -28,7 +28,7 @@ fun Route.userRouting() {
             .withAudience(audience)
             .withIssuer(issuer)
             .withClaim("username", user.username)
-            .withExpiresAt(Date(System.currentTimeMillis() + 60000))
+                .withExpiresAt(Date(System.currentTimeMillis() + 3600000))
             .sign(Algorithm.HMAC256(secret))
 
         call.respond(hashMapOf("token" to token))
